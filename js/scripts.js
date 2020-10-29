@@ -42,7 +42,7 @@ $(document).ready(function(){
 
   if (number && number >= 0) {
     romanNumeral(number);
-  } else if{
+  } else{
     $("#warning").show();
   }
  });
