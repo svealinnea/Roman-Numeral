@@ -6,7 +6,7 @@
 //Expect: romanNumeral(50).toEqual(L)
 
 //Business Logic//
-function romanNumeral(number) {
+/*function romanNumeral(number) {
   if (number === 1) {
     return "I";
   } else if (number === 5) {
@@ -22,4 +22,28 @@ function romanNumeral(number) {
   } else if (number === 1000) {
     return "M";
   }
+}*/
+
+
+function romanNumeral(number) {
+  let array = [[1,"I"], [5,"V"], [10, "X"], [50, "L"], [100, "C"], [500, "D"], [1000, "M"]]; 
+  for (i=0; i<array.length; i++){
+    if (number === array[i][0]) {
+    return array[i][1];
+    }
+  }
 }
+
+//UI Logic
+$(document).ready(function(){
+ $("#form").submit(function(event) {
+  event.preventDefault();
+  const number = parseInt($("input#number").val());
+
+  if (number && number >= 0) {
+    romanNumeral(number);
+  } else if{
+    $("#warning").show();
+  }
+ });
+});
